@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.daniel.bookstore.domain.Author;
 import com.daniel.bookstore.repositories.AuthorRepository;
+import com.daniel.bookstore.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class AuthorService {
@@ -17,6 +18,6 @@ public class AuthorService {
 	public Author find(Integer id) {
 		Optional<Author> author = authorRepository.findById(id);
 		
-		return author.orElse(null);
+		return author.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado, ID:" + id + ", Tipo: " + Author.class.getName()));
 	}
 }
