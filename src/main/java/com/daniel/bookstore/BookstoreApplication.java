@@ -8,13 +8,17 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.daniel.bookstore.domain.Author;
+import com.daniel.bookstore.domain.Publisher;
 import com.daniel.bookstore.repositories.AuthorRepository;
+import com.daniel.bookstore.repositories.PublisherRepository;
 
 @SpringBootApplication
 public class BookstoreApplication implements CommandLineRunner{
 
 	@Autowired
 	private AuthorRepository authorRepository;
+	@Autowired
+	private PublisherRepository publisherRepository;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(BookstoreApplication.class, args);
@@ -29,5 +33,12 @@ public class BookstoreApplication implements CommandLineRunner{
 		a2.getPhones().addAll(Arrays.asList("33654892"));
 		
 		authorRepository.saveAll(Arrays.asList(a1, a2));
+		
+		///////////////////////////////////////////////////////////
+		
+		Publisher pb1 = new Publisher(null, "pearson", "pearson.com");
+		
+		publisherRepository.saveAll(Arrays.asList(pb1));
+		
 	}
 }
