@@ -41,13 +41,14 @@ public class BookstoreApplication implements CommandLineRunner{
 		///////////////////////////////////////////////////////////
 		
 		Publisher pb1 = new Publisher(null, "pearson", "pearson.com");
+		Publisher pb2 = new Publisher(null, "zoom", "zoom.com");
 		
-		publisherRepository.saveAll(Arrays.asList(pb1));
+		publisherRepository.saveAll(Arrays.asList(pb1, pb2));
 		
 		///////////////////////////////////////////////////////////
 		
-		Book b1 = new Book(null, "978-0-7334-2635-4", "2018", "Fundamento de C#", 110.0);
-		Book b2 = new Book(null, "952-3-7354-0062-1", "2121", "Criando um blog com ReactJS", 163.0);
+		Book b1 = new Book(null, "978-0-7334-2635-4", "2018", "Fundamento de C#", 110.0, pb1);
+		Book b2 = new Book(null, "952-3-7354-0062-1", "2121", "Criando um blog com ReactJS", 163.0, pb2);
 
 		bookRepository.saveAll(Arrays.asList(b1, b2));
 	}

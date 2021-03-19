@@ -1,11 +1,16 @@
 package com.daniel.bookstore.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Publisher implements Serializable{
@@ -18,6 +23,10 @@ public class Publisher implements Serializable{
 	
 	private String name;
 	private String url;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "publisher")
+	private List<Book> books = new ArrayList<>();
 	
 	public Publisher() {
 		super();
@@ -52,6 +61,14 @@ public class Publisher implements Serializable{
 
 	public void setUrl(String url) {
 		this.url = url;
+	}
+	
+	public List<Book> getBooks() {
+		return books;
+	}
+
+	public void setBooks(List<Book> books) {
+		this.books = books;
 	}
 
 	@Override
