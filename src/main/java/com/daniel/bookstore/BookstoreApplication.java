@@ -25,6 +25,9 @@ public class BookstoreApplication implements CommandLineRunner{
 		Author a1 = new Author(null, "Márcio marques", "marcio.com");
 		Author a2 = new Author(null, "Lúcio ventura", "lucio.com");
 		
+		a1.getPhones().addAll(Arrays.asList("996871253", "995415986"));
+		a2.getPhones().addAll(Arrays.asList("33654892"));
+		
 		authorRepository.saveAll(Arrays.asList(a1, a2));
 	}
 }

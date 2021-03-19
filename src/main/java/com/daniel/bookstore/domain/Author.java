@@ -1,7 +1,11 @@
 package com.daniel.bookstore.domain;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CollectionTable;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,6 +22,10 @@ public class Author implements Serializable {
 
 	private String name;
 	private String url;
+
+	@ElementCollection
+	@CollectionTable(name = "PHONES")
+	private Set<String> phones = new HashSet<>();
 
 	public Author() {
 	}
@@ -51,6 +59,14 @@ public class Author implements Serializable {
 
 	public void setUrl(String url) {
 		this.url = url;
+	}
+
+	public Set<String> getPhones() {
+		return phones;
+	}
+
+	public void setPhones(Set<String> phones) {
+		this.phones = phones;
 	}
 
 	@Override
