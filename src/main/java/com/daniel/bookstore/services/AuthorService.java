@@ -18,6 +18,6 @@ public class AuthorService {
 	public Author find(Integer id) {
 		Optional<Author> author = authorRepository.findById(id);
 		
-		return author.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado, ID:" + id + ", Tipo: " + Author.class.getName()));
+		return author.orElseThrow(() -> new ObjectNotFoundException("Object not found, ID:" + id + ", Type: " + Author.class.getName()));
 	}
 }
