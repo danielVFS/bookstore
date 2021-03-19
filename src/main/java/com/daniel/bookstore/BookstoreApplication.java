@@ -48,8 +48,9 @@ public class BookstoreApplication implements CommandLineRunner{
 		///////////////////////////////////////////////////////////
 		
 		Book b1 = new Book(null, "978-0-7334-2635-4", "2018", "Fundamento de C#", 110.0, pb1);
-		Book b2 = new Book(null, "952-3-7354-0062-1", "2121", "Criando um blog com ReactJS", 163.0, pb2);
+		Book b2 = new Book(null, "999-2-7324-5895-3", "2013", "PHP para iniciantes", 85.0, pb1);
+		Book b3 = new Book(null, "952-3-7354-0062-1", "2021", "Criando um blog com ReactJS", 163.0, pb2);
 
-		bookRepository.saveAll(Arrays.asList(b1, b2));
+		bookRepository.saveAll(Arrays.asList(b1, b2, b3));
 	}
 }
